@@ -1,0 +1,913 @@
+--[[
+	Team Armed GUI (k00pgui Inspired) — Fixed version
+	Original by EpicHrakeri
+	All errors corrected: syntax, nil guards, float comparisons, math.random, loops
+]]
+
+--=====================================================================
+-- SERVICES & HELPERS
+--=====================================================================
+local Players            = game:GetService("Players")
+local ReplicatedStorage  = game:GetService("ReplicatedStorage")
+local TweenService       = game:GetService("TweenService")
+local UserInputService   = game:GetService("UserInputService")
+local MarketplaceService = game:GetService("MarketplaceService")
+
+local LocalPlayer = Players.LocalPlayer
+
+-- Safely get the player's character
+local function getChar()
+	return LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+end
+
+-- Safely get the F3X tool (SyncAPI)
+local function getF3X()
+	local char     = LocalPlayer.Character
+	local backpack = LocalPlayer:FindFirstChild("Backpack")
+	local containers = { backpack, char }
+	for _, c in ipairs(containers) do
+		if c then
+			for _, v in ipairs(c:GetChildren()) do
+				if v:FindFirstChild("SyncAPI") then
+					return v
+				end
+			end
+		end
+	end
+	for _, v in ipairs(ReplicatedStorage:GetDescendants()) do
+		if v.Name == "SyncAPI" then
+			return v.Parent
+		end
+	end
+	return nil
+end
+
+-- Safely get the HD Admin remote (may not exist in every game)
+local function getHDAdmin()
+	local ok, client = pcall(function()
+		return ReplicatedStorage:WaitForChild("HDAdminHDClient", 3)
+	end)
+	if not ok or not client then return nil end
+	local ok2, signals = pcall(function()
+		return client:WaitForChild("Signals", 3)
+	end)
+	if not ok2 or not signals then return nil end
+	local ok3, remote = pcall(function()
+		return signals:WaitForChild("RequestCommandSilent", 3)
+	end)
+	return ok3 and remote or nil
+end
+
+-- Fire an HD Admin command safely
+local function hdCmd(cmd)
+	local remote = getHDAdmin()
+	if remote then
+		pcall(function()
+			remote:InvokeServer(cmd)
+		end)
+	end
+end
+
+--=====================================================================
+-- F3X REMOTE WRAPPER
+--=====================================================================
+-- Creates a bundle of F3X functions bound to the player's SyncAPI.
+-- Returns a table of functions, or nil if F3X is missing.
+local function bindF3X()
+	local tool = getF3X()
+	if not tool then
+		warn("[TeamArmedGUI] F3X tool not found — equip Building Tools first.")
+		return nil
+	end
+	local syncapi = tool:FindFirstChild("SyncAPI")
+	if not syncapi then return nil end
+	local endpoint = syncapi:FindFirstChild("ServerEndpoint")
+	if not endpoint then return nil end
+
+	local function _(args)
+		return endpoint:InvokeServer(unpack(args))
+	end
+
+	local F = {}
+	F.raw = _
+
+	function F.SetCollision(part, bool)
+		_({ "SyncCollision", { { Part = part, CanCollide = bool } } })
+	end
+	function F.SetAnchor(part, bool)
+		_({ "SyncAnchor", { { Part = part, Anchored = bool } } })
+	end
+	function F.CreatePart(cf, parent, kind)
+		return _({ "CreatePart", kind or "Normal", cf, parent or workspace })
+	end
+	function F.DestroyPart(part)
+		_({ "Remove", { part } })
+	end
+	function F.MovePart(part, cf)
+		_({ "SyncMove", { { Part = part, CFrame = cf } } })
+	end
+	function F.Resize(part, size, cf)
+		_({ "SyncResize", { { Part = part, CFrame = cf, Size = size } } })
+	end
+	function F.AddMesh(part)
+		_({ "CreateMeshes", { { Part = part } } })
+	end
+	function F.SetMesh(part, id)
+		_({ "SyncMesh", { { Part = part, MeshId = "rbxassetid://" .. tostring(id) } } })
+	end
+	function F.SetTexture(part, id)
+		_({ "SyncMesh", { { Part = part, TextureId = "rbxassetid://" .. tostring(id) } } })
+	end
+	function F.SetName(part, name)
+		_({ "SetName", { part }, name })
+	end
+	function F.MeshResize(part, scale)
+		_({ "SyncMesh", { { Part = part, Scale = scale } } })
+	end
+	function F.Weld(part1, part2, lead)
+		_({ "CreateWelds", { part1, part2 }, lead })
+	end
+	function F.SetLocked(part, bool)
+		_({ "SetLocked", { part }, bool })
+	end
+	function F.SetTrans(part, n)
+		_({ "SyncMaterial", { { Part = part, Transparency = n } } })
+	end
+	function F.Color(part, color)
+		_({ "SyncColor", { { Part = part, Color = color, UnionColoring = false } } })
+	end
+	function F.CreateSpotlight(part)
+		_({ "CreateLights", { { Part = part, LightType = "SpotLight" } } })
+	end
+	function F.CreatePointLight(part)
+		_({ "CreateLights", { { Part = part, LightType = "PointLight" } } })
+	end
+	function F.SyncLighting(part, brightness)
+		_({ "SyncLighting", { { Part = part, LightType = "SpotLight", Brightness = brightness } } })
+	end
+	function F.SyncPointLight(part, brightness, color)
+		_({ "SyncLighting", { { Part = part, LightType = "PointLight", Brightness = brightness, Color = color } } })
+	end
+	function F.AddFire(part)
+		_({ "CreateDecorations", { { Part = part, DecorationType = "Fire" } } })
+	end
+	function F.SyncFire(part, size, heat)
+		_({ "SyncDecorate", { { Part = part, DecorationType = "Fire", Size = size, Heat = heat } } })
+	end
+	function F.SpawnDecal(part, side)
+		_({ "CreateTextures", { { Part = part, Face = side, TextureType = "Decal" } } })
+	end
+	function F.AddDecal(part, asset, side)
+		_({ "SyncTexture", { { Part = part, Face = side, TextureType = "Decal", Texture = "rbxassetid://" .. tostring(asset) } } })
+	end
+	function F.CreateTexture(part, side)
+		_({ "CreateTextures", { { Part = part, Face = side, TextureType = "Texture" } } })
+	end
+	function F.SyncTexture(part, side, id, u, v)
+		_({ "SyncTexture", { { Part = part, Face = side, TextureType = "Texture", Texture = "rbxassetid://" .. tostring(id), StudsPerTileU = u or 2, StudsPerTileV = v or 2 } } })
+	end
+
+	-- Convenience: create a skybox part high above the player and return it
+	function F.CreateSky(textureId, scale)
+		local char = getChar()
+		local hrp  = char:FindFirstChild("HumanoidRootPart")
+		if not hrp then return nil end
+		local pos  = hrp.CFrame.Position + Vector3.new(0, 6, 0)
+		local part = F.CreatePart(CFrame.new(pos), workspace)
+		if not part then return nil end
+		F.SetName(part, "Sky")
+		F.AddMesh(part)
+		F.SetMesh(part, "111891702759441")
+		F.SetTexture(part, textureId)
+		F.MeshResize(part, scale or Vector3.new(7000, 7000, 7000))
+		F.SetLocked(part, true)
+		F.SetAnchor(part, true)
+		F.SetCollision(part, false)
+		return part
+	end
+
+	return F
+end
+
+--=====================================================================
+-- GUI CREATION
+--=====================================================================
+local k00ply = Instance.new("ScreenGui")
+k00ply.Name = "k00ply"
+k00ply.ResetOnSpawn = false
+k00ply.Parent = LocalPlayer:WaitForChild("PlayerGui")
+
+local Frame = Instance.new("Frame")
+Frame.Parent = k00ply
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderColor3 = Color3.fromRGB(1, 53, 10)
+Frame.BorderSizePixel = 5
+Frame.Position = UDim2.new(0.1545, -49, 0.2755, -185)
+Frame.Size = UDim2.new(0, 415, 0, 642)
+
+local ScrollingFrame = Instance.new("ScrollingFrame")
+ScrollingFrame.Parent = Frame
+ScrollingFrame.Active = true
+ScrollingFrame.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+ScrollingFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ScrollingFrame.Position = UDim2.new(0.025, 0, 0.022, 0)
+ScrollingFrame.Size = UDim2.new(0, 393, 0, 620)
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 6, 0)
+ScrollingFrame.ScrollBarThickness = 18
+
+-- Background image
+local ImageLabel = Instance.new("ImageLabel")
+ImageLabel.Parent = ScrollingFrame
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Size = UDim2.new(1, 0, 1, 0)
+ImageLabel.Image = "rbxassetid://114490128882446"
+ImageLabel.ImageTransparency = 0.6
+ImageLabel.ScaleType = Enum.ScaleType.Crop
+
+-- Title
+local TextLabel = Instance.new("TextLabel")
+TextLabel.Parent = ImageLabel
+TextLabel.BackgroundTransparency = 1
+TextLabel.Position = UDim2.new(0.272, 0, 0.019, 0)
+TextLabel.Size = UDim2.new(0, 170, 0, 32)
+TextLabel.Font = Enum.Font.Arial
+TextLabel.Text = "Team Armed Gui f3x (k00pgui Inspired)"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextWrapped = true
+
+local TextLabel_2 = Instance.new("TextLabel")
+TextLabel_2.Parent = TextLabel
+TextLabel_2.BackgroundTransparency = 1
+TextLabel_2.Position = UDim2.new(-0.0047, 0, 1.2583, 0)
+TextLabel_2.Size = UDim2.new(0, 170, 0, 32)
+TextLabel_2.Font = Enum.Font.Arial
+TextLabel_2.Text = "by EpicHrakeri"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextWrapped = true
+
+--=====================================================================
+-- BUTTON FACTORY
+--=====================================================================
+-- Creates a TextButton directly under the ScrollingFrame (instead of
+-- the tiny TextLabel_4) so buttons are actually visible & clickable.
+local nextY = 80
+
+local function makeButton(name, text, callback, width, xOffset, yOffset)
+	local btn = Instance.new("TextButton")
+	btn.Name = name
+	btn.Parent = ScrollingFrame
+	btn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	btn.BorderColor3 = Color3.fromRGB(0, 53, 11)
+	btn.Size = UDim2.new(0, width or 180, 0, 36)
+	btn.Position = UDim2.new(0, xOffset or 8, 0, yOffset or nextY)
+	btn.Font = Enum.Font.SourceSans
+	btn.Text = text
+	btn.TextColor3 = Color3.fromRGB(255, 255, 255)
+	btn.TextScaled = true
+	btn.TextWrapped = true
+	btn.MouseButton1Click:Connect(function()
+		local ok, err = pcall(callback)
+		if not ok then
+			warn("[TeamArmedGUI] " .. tostring(name) .. " error: " .. tostring(err))
+		end
+	end)
+	return btn
+end
+
+-- Two-column layout helper
+local col1, col2 = 8, 200
+local row = 40
+local function advanceRow()
+	nextY = nextY + row
+end
+
+--=====================================================================
+-- BUTTON IMPLEMENTATIONS
+--=====================================================================
+
+-- 1. 666 (full chaos)
+makeButton("btn666", "666", function()
+	local F = bindF3X()
+	if not F then return end
+
+	local function decalspam()
+		for _, v in ipairs(workspace:GetDescendants()) do
+			if v:IsA("BasePart") or v:IsA("UnionOperation") then
+				if v.Name ~= "Sky" then
+					task.spawn(function()
+						for _, face in ipairs({Enum.NormalId.Front, Enum.NormalId.Back, Enum.NormalId.Left, Enum.NormalId.Right, Enum.NormalId.Bottom, Enum.NormalId.Top}) do
+							F.SpawnDecal(v, face)
+							F.AddDecal(v, "114490128882446", face)
+						end
+					end)
+				end
+			end
+		end
+	end
+
+	local function lightall()
+		for _, v in ipairs(workspace:GetDescendants()) do
+			if v:IsA("BasePart") or v:IsA("UnionOperation") then
+				task.spawn(function()
+					F.CreatePointLight(v)
+					F.SyncPointLight(v, 15, Color3.new(1, 0, 0))
+				end)
+			end
+		end
+	end
+
+	local function colorall()
+		for _, v in ipairs(workspace:GetDescendants()) do
+			if v:IsA("BasePart") or v:IsA("UnionOperation") then
+				task.spawn(function()
+					F.Color(v, Color3.new(0.0667, 0.0667, 0.0667))
+				end)
+			end
+		end
+	end
+
+	local function fireall()
+		for _, v in ipairs(workspace:GetDescendants()) do
+			if v:IsA("BasePart") or v:IsA("UnionOperation") then
+				task.spawn(function()
+					F.AddFire(v)
+					F.SyncFire(v, 30, 35)
+				end)
+			end
+		end
+	end
+
+	decalspam()
+	lightall()
+	colorall()
+	fireall()
+	F.CreateSky("15849970412", Vector3.new(90, 90, 90))
+end)
+advanceRow()
+
+-- 2. China Spam
+makeButton("btnChinaSpam", "China Spam", function()
+	local F = bindF3X()
+	if not F then return end
+	for _, v in ipairs(workspace:GetDescendants()) do
+		if v:IsA("BasePart") then
+			task.spawn(function()
+				F.SetLocked(v, false)
+				for _, face in ipairs({Enum.NormalId.Front, Enum.NormalId.Back, Enum.NormalId.Right, Enum.NormalId.Left, Enum.NormalId.Bottom, Enum.NormalId.Top}) do
+					F.SpawnDecal(v, face)
+					F.AddDecal(v, "9110900661", face)
+				end
+			end)
+		end
+	end
+end)
+advanceRow()
+
+-- 3. Shutdown
+makeButton("btnShutdown", "Shutdown", function()
+	hdCmd(";shutdown")
+end)
+advanceRow()
+
+-- 4. Music buttons (HD Admin ;music)
+local musicTracks = {
+	{ "Solo tu",             "110765746110268" },
+	{ "alone",               "75485931767123"  },
+	{ "Theme Harkinian",     "1837371778"      },
+	{ "bad man",             "1839870917"      },
+	{ "jumpstyle",           "1839246711"      },
+	{ "it's Raining Men",    "79999206651848 ;pitch 0.22" },
+	{ "remix Sparta",        "106454968477932 ;pitch 0.2" },
+	{ "KaaX theme",          "105707572244741 ;pitch 0.07 ;volume inf" },
+	{ "Stadium Rave (A)",    "1846368080 ;volume inf ;pitch 0.95" },
+	{ "theme",               "138421944471718 ;pitch 1 ;volume inf" },
+}
+for _, track in ipairs(musicTracks) do
+	makeButton("btnMusic_" .. track[1], track[1], function()
+		hdCmd(";music " .. track[2])
+	end, 180, col1, nextY)
+	advanceRow()
+end
+
+-- Stop songs
+makeButton("btnStopSongs", "Stop Songs", function()
+	hdCmd(";unmusic")
+end)
+advanceRow()
+
+--=====================================================================
+-- F3X-BASED VISUAL EFFECTS
+--=====================================================================
+
+-- Decal spam (k00p style)
+makeButton("btnDecal", "Decal", function()
+	local F = bindF3X()
+	if not F then return end
+	for _, v in ipairs(workspace:GetDescendants()) do
+		if v:IsA("BasePart") then
+			task.spawn(function()
+				F.SetLocked(v, false)
+				for _, face in ipairs({Enum.NormalId.Front, Enum.NormalId.Back, Enum.NormalId.Right, Enum.NormalId.Left, Enum.NormalId.Bottom, Enum.NormalId.Top}) do
+					F.SpawnDecal(v, face)
+					F.AddDecal(v, "114490128882446", face)
+				end
+			end)
+		end
+	end
+end)
+advanceRow()
+
+-- Fire all
+makeButton("btnFireAll", "Fire all", function()
+	local F = bindF3X()
+	if not F then return end
+	for _, v in ipairs(workspace:GetDescendants()) do
+		task.spawn(function()
+			F.SetLocked(v, false)
+			F.AddFire(v)
+		end)
+	end
+end)
+advanceRow()
+
+-- UnAnchor all
+makeButton("btnUnAnchor", "UnAnchor", function()
+	local F = bindF3X()
+	if not F then return end
+	for _, v in ipairs(workspace:GetDescendants()) do
+		task.spawn(function()
+			F.SetLocked(v, false)
+			F.SetAnchor(v, false)
+		end)
+	end
+end)
+advanceRow()
+
+-- Kill all
+makeButton("btnKillAll", "Kill all", function()
+	hdCmd(";kill all")
+end)
+advanceRow()
+
+-- Gravity Hammer
+makeButton("btnGravityHammer", "Gravity Hammer", function()
+	hdCmd(";gear me 33866846")
+end)
+advanceRow()
+
+-- Message
+makeButton("btnMessage", "Message", function()
+	hdCmd(";serverMessage HACKED BY TEAM EPICHRAKERI LMAO")
+end)
+advanceRow()
+
+-- Hint
+makeButton("btnHint", "Hint", function()
+	hdCmd(";serverhint Team EpicHrakeri was here! ")
+end)
+advanceRow()
+
+-- Part Rain (toad-style rain)
+makeButton("btnPartRain", "Part Rain", function()
+	local F = bindF3X()
+	if not F then return end
+	local char = getChar()
+	local hrp  = char:FindFirstChild("HumanoidRootPart")
+	if not hrp then return end
+
+	task.spawn(function()
+		while char.Parent and char:FindFirstChild("Humanoid") and char.Humanoid.Health > 0 do
+			task.wait(0.15)
+			local hrpCF = hrp.CFrame
+			local x = math.floor(hrpCF.X + math.random(-400, 400))
+			local z = math.floor(hrpCF.Z + math.random(-400, 400))
+			local yBase = math.floor(hrpCF.Y + 400)
+			local y = math.random(yBase, yBase + 400)
+			task.spawn(function()
+				local part = F.CreatePart(CFrame.new(x, y, z), workspace)
+				if part then
+					F.SetName(part, "Part")
+					F.SetAnchor(part, false)
+					F.SetCollision(part, true)
+					part.Orientation = Vector3.new(0, 0, 0)
+					local sound = Instance.new("Sound")
+					sound.SoundId = "rbxassetid://153752123"
+					sound.Volume = 0
+					sound.PlayOnRemove = true
+					sound.Parent = part
+					sound:Destroy()
+				end
+			end)
+		end
+	end)
+	F.CreateSky("0")
+end)
+advanceRow()
+
+-- Spin all
+makeButton("btnSpinAll", "Spin all", function()
+	hdCmd(";Spin all")
+end)
+advanceRow()
+
+-- Disco
+makeButton("btnDisco", "disco", function()
+	hdCmd(";disco")
+	hdCmd(";fog 7000 7000")
+end)
+advanceRow()
+
+-- Dummy / Clone
+makeButton("btnDummy", "dummy", function()
+	hdCmd(";Clone")
+end)
+advanceRow()
+
+-- Owner Rank notice
+makeButton("btnOwnerRank", "Owner Rank", function()
+	hdCmd(";notice me you have been ranked Owner")
+end)
+advanceRow()
+
+-- Kaax Script
+makeButton("btnKaax", "Kaax Script", function()
+	local F = bindF3X()
+	if not F then return end
+	F.CreateSky("12330950245", Vector3.new(7000, 7000, 7000))
+	hdCmd(";sm Game Haxxored By KaaXSploits!")
+end)
+advanceRow()
+
+-- Delete everything (EMERGENCY)
+makeButton("btnDeleteAll", "Delete everything [EMERGENCY]", function()
+	hdCmd(";punish all")
+	task.wait(0.1)
+	local F = bindF3X()
+	if not F then return end
+	for _, v in ipairs(workspace:GetDescendants()) do
+		if v:IsA("BasePart") or v:IsA("UnionOperation") then
+			task.spawn(function()
+				F.DestroyPart(v)
+			end)
+		end
+	end
+end)
+advanceRow()
+
+-- Become Thomas [R6 only]
+makeButton("btnThomas", "become thomas [R6 only]", function()
+	local F = bindF3X()
+	if not F then return end
+	local char = getChar()
+	local hrp  = char:FindFirstChild("HumanoidRootPart")
+	if not hrp then return end
+
+	-- Hide the original R6 body parts
+	for _, name in ipairs({"Torso", "Left Leg", "Right Leg", "Left Arm", "Right Arm", "Head", "HumanoidRootPart"}) do
+		local p = char:FindFirstChild(name)
+		if p then
+			F.SetTrans(p, 1)
+		end
+	end
+
+	F.SetAnchor(hrp, true)
+	local part = F.CreatePart(hrp.CFrame, char, "Normal")
+	if not part then return end
+	F.SetCollision(part, false)
+	F.SetLocked(part, false)
+	F.Resize(part, Vector3.new(5, 5, 10), hrp.CFrame)
+	F.CreateSpotlight(part)
+	F.SyncLighting(part, 100)
+	F.Weld(part, hrp, part)
+	F.SetAnchor(part, false)
+	F.AddMesh(part)
+	F.MeshResize(part, Vector3.new(2, 2, 1.5))
+	F.SetMesh(part, "2231280549")
+	F.SetTexture(part, "2231280614")
+	F.SetAnchor(hrp, false)
+
+	if char:FindFirstChild("Humanoid") then
+		char.Humanoid.WalkSpeed = 80
+	end
+
+	part.Touched:Connect(function(hit)
+		local plr = Players:GetPlayerFromCharacter(hit.Parent)
+		if plr and plr ~= LocalPlayer and plr.Character then
+			local head = plr.Character:FindFirstChild("Head")
+			if head then
+				task.spawn(function()
+					F.DestroyPart(head)
+				end)
+			end
+		end
+	end)
+end)
+advanceRow()
+
+-- Restore Skybox
+makeButton("btnRestoreSky", "Restore Skybox", function()
+	hdCmd(";time 4")
+	local F = bindF3X()
+	if not F then return end
+	local sky = workspace:FindFirstChild("Sky")
+	if sky then
+		F.DestroyPart(sky)
+	end
+end)
+advanceRow()
+
+-- Dreambully
+makeButton("btnDreemy", "dreambully", function()
+	local F = bindF3X()
+	if not F then return end
+	F.CreateSky("11960872218", Vector3.new(7000, 7000, 7000))
+end)
+advanceRow()
+
+-- Jado Saie
+makeButton("btnJadoSaie", "jado saie", function()
+	local F = bindF3X()
+	if not F then return end
+	F.CreateSky("92853598323802", Vector3.new(7000, 7000, 7000))
+end)
+advanceRow()
+
+-- SkyBox 2
+makeButton("btnSky2", "SkyBox 2", function()
+	local F = bindF3X()
+	if not F then return end
+	F.CreateSky("75706369811028", Vector3.new(7000, 7000, 7000))
+end)
+advanceRow()
+
+-- SkyBox
+makeButton("btnSky1", "SkyBox", function()
+	local F = bindF3X()
+	if not F then return end
+	F.CreateSky("114490128882446", Vector3.new(7000, 7000, 7000))
+end)
+advanceRow()
+
+-- Shedletsky
+makeButton("btnShedletsky", "Shedletsky", function()
+	local F = bindF3X()
+	if not F then return end
+	F.CreateSky("172423468", Vector3.new(7000, 7000, 7000))
+end)
+advanceRow()
+
+-- Wrong button (randcol / realm)
+makeButton("btnWrongButton", "wrong button", function()
+	local F = bindF3X()
+	if not F then return end
+	local char = getChar()
+	local hrp  = char:FindFirstChild("HumanoidRootPart")
+	if not hrp then return end
+
+	-- Unanchor everything
+	for _, v in ipairs(workspace:GetDescendants()) do
+		if v:IsA("BasePart") or v:IsA("UnionOperation") then
+			task.spawn(function()
+				F.SetLocked(v, false)
+				F.SetAnchor(v, false)
+			end)
+		end
+	end
+
+	-- Create a realm floor
+	local pos  = CFrame.new(0, 0, 0)
+	local base = F.CreatePart(pos, workspace, "Normal")
+	if base then
+		F.Resize(base, Vector3.new(1000, 1, 1000), pos)
+		F.CreateTexture(base, Enum.NormalId.Top)
+		F.SyncTexture(base, Enum.NormalId.Top, "13199422086", 2, 2)
+		F.Color(base, Color3.fromRGB(0, 150, 0))
+	end
+end)
+advanceRow()
+
+-- Toadroasted remake
+makeButton("btnToad", "toadroasted remake", function()
+	hdCmd(";sm get toadroasted")
+
+	local F = bindF3X()
+	if not F then return end
+	local char = getChar()
+	local hrp  = char:FindFirstChild("HumanoidRootPart")
+	if not hrp then return end
+
+	-- Punish every player in the server (deletes their HRP)
+	for _, plr in ipairs(Players:GetPlayers()) do
+		local c = plr.Character
+		if c and c:FindFirstChild("HumanoidRootPart") then
+			pcall(function()
+				F.DestroyPart(c.HumanoidRootPart)
+			end)
+		end
+	end
+
+	-- Rain mini-toads
+	task.spawn(function()
+		while char.Parent and char:FindFirstChild("Humanoid") and char.Humanoid.Health > 0 do
+			task.wait(0.3)
+			local hrpCF = hrp.CFrame
+			local x = math.floor(hrpCF.X + math.random(-600, 600))
+			local z = math.floor(hrpCF.Z + math.random(-600, 600))
+			local yBase = math.floor(hrpCF.Y + 400)
+			local y = math.random(yBase, yBase + 400)
+			task.spawn(function()
+				local toad = F.CreatePart(CFrame.new(x, y, z), workspace, "Normal")
+				if toad then
+					F.SetName(toad, "MiniToad")
+					F.SetAnchor(toad, false)
+					F.AddMesh(toad)
+					F.Resize(toad, Vector3.new(100, 100, 100), toad.CFrame)
+					F.MeshResize(toad, Vector3.new(4, 4, 4))
+					F.SetMesh(toad, "5038530279")
+					F.SetTexture(toad, "5038530309")
+					F.SetCollision(toad, false)
+					toad.Orientation = Vector3.new(0, 0, 0)
+					local sound = Instance.new("Sound")
+					sound.SoundId = "rbxassetid://153752123"
+					sound.Volume = 10
+					sound.PlayOnRemove = true
+					sound.Parent = toad
+					sound:Destroy()
+				end
+			end)
+		end
+	end)
+
+	F.CreateSky("201208408")
+end)
+advanceRow()
+
+-- Particles
+makeButton("btnParticles", "Particles", function()
+	local F = bindF3X()
+	if not F then return end
+	local char = getChar()
+	local hrp  = char:FindFirstChild("HumanoidRootPart")
+	if not hrp then return end
+
+	local ids = { "114490128882446", "114490128882446", "114490128882446" }
+	local running = true
+
+	task.spawn(function()
+		while running and char.Parent do
+			task.wait(0.1)
+			task.spawn(function()
+				local e = math.floor(hrp.CFrame.X + math.random(-100, 100))
+				local f = math.floor(hrp.CFrame.Y)
+				local g = math.floor(hrp.CFrame.Z + math.random(-100, 100))
+				local part = F.CreatePart(CFrame.new(e, f, g) + Vector3.new(0, 6, 0), workspace)
+				if part then
+					F.SetName(part, "particle")
+					local id = ids[math.random(1, #ids)]
+					F.SpawnDecal(part, Enum.NormalId.Front)
+					F.AddDecal(part, id, Enum.NormalId.Front)
+					F.SpawnDecal(part, Enum.NormalId.Back)
+					F.AddDecal(part, id, Enum.NormalId.Back)
+					F.SetTrans(part, 1)
+					F.Resize(part, Vector3.new(7, 7, 0.1), part.CFrame)
+					F.SetLocked(part, true)
+					task.spawn(function()
+						while part.Parent do
+							task.wait(0.01)
+							F.MovePart(part, CFrame.new(part.CFrame.X, part.CFrame.Y + 3, part.CFrame.Z))
+						end
+					end)
+				end
+			end)
+		end
+	end)
+end)
+advanceRow()
+
+-- Skin all
+makeButton("btnSkinAll", "skin all", function()
+	hdCmd(";Char me GOroblox111dd")
+	hdCmd(";name me EpicHrakeri")
+end)
+advanceRow()
+
+-- Leave & Shutdown
+makeButton("btnLeaveShutdown", "Leave & Shutdown", function()
+	hdCmd(";shutdown HRK has destroyed this server lool")
+end)
+advanceRow()
+
+-- R6
+makeButton("btnR6", "R6", function()
+	hdCmd(";R6 me")
+end)
+advanceRow()
+
+-- Get F3X
+makeButton("btnGetF3X", "Get F3X", function()
+	hdCmd(";btools me")
+end)
+advanceRow()
+
+-- Realm (was gametp, kept as empty like original)
+makeButton("btnRealm", "Realm", function()
+	-- Original was commented out / empty
+end)
+advanceRow()
+
+--=====================================================================
+-- DRAGIFY FRAME
+--=====================================================================
+do
+	local dragging, dragInput, dragStart, startPos
+	local function update(input)
+		local delta = input.Position - dragStart
+		local pos = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		TweenService:Create(Frame, TweenInfo.new(0.2), { Position = pos }):Play()
+	end
+	Frame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+			dragging = true
+			dragStart = input.Position
+			startPos = Frame.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragging = false
+				end
+			end)
+		end
+	end)
+	Frame.InputChanged:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+			dragInput = input
+		end
+	end)
+	UserInputService.InputChanged:Connect(function(input)
+		if input == dragInput and dragging then
+			update(input)
+		end
+	end)
+end
+
+--=====================================================================
+-- GAMEPASS PROMPTS (non-blocking, capped)
+--=====================================================================
+task.spawn(function()
+	local GAMEPASS_1 = 1773241769
+	local GAMEPASS_2 = 1772911838
+	local current = GAMEPASS_1
+	local attempts = 0
+
+	local function owns(id)
+		local ok, res = pcall(function()
+			return MarketplaceService:UserOwnsGamepassAsync(LocalPlayer.UserId, id)
+		end)
+		return ok and res or false
+	end
+
+	task.wait(2)
+	while attempts < 30 do
+		attempts = attempts + 1
+		if not owns(current) then
+			pcall(function()
+				MarketplaceService:PromptGamePassPurchase(LocalPlayer, current)
+			end)
+		else
+			if current == GAMEPASS_1 then
+				current = GAMEPASS_2
+			else
+				break
+			end
+		end
+		task.wait(7)
+	end
+end)
+
+--=====================================================================
+-- AUTO-BTOOLS LOOP (bounded, non-spammy)
+--=====================================================================
+task.spawn(function()
+	local attempts = 0
+	while attempts < 60 do
+		attempts = attempts + 1
+		local backpack = LocalPlayer:FindFirstChild("Backpack")
+		local hasBTools = false
+		if backpack then
+			for _, tool in ipairs(backpack:GetChildren()) do
+				if tool:IsA("Tool") and (tool.Name == "Building Tools" or tool:FindFirstChild("SyncAPI")) then
+					hasBTools = true
+					break
+				end
+			end
+		end
+		if not hasBTools then
+			hdCmd(";btools")
+		else
+			break
+		end
+		task.wait(1)
+	end
+end)
