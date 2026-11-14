@@ -1,0 +1,1054 @@
+-- This file was generated at discord.gg/syncrypt
+
+local t4 = {
+	value1 = {}
+}
+
+t4.value1.ScreenGui_1 = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
+t4.value1.ScreenGui_1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+t4.value1.ScreenGui_1.ResetOnSpawn = false
+t4.value1.Frame_2 = Instance.new("Frame", t4.value1.ScreenGui_1)
+t4.value1.Frame_2.BorderSizePixel = 3
+t4.value1.Frame_2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.Frame_2.Size = UDim2.new(0, 438, 0, 342)
+t4.value1.Frame_2.Position = UDim2.new(0, 140, 0, -50)
+t4.value1.Frame_2.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton15_3 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton15_3.TextSize = 23
+t4.value1.TextButton15_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton15_3.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton15_3.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton15_3.Size = UDim2.new(0, 210, 0, 28)
+t4.value1.TextButton15_3.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton15_3.Text = "Play theme"
+t4.value1.TextButton15_3.Name = "TextButton15"
+t4.value1.TextButton15_3.Position = UDim2.new(0, 220, 0, 154)
+t4.value1.LocalScript_4 = Instance.new("LocalScript", t4.value1.TextButton15_3)
+t4.value1.TextButton13_5 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton13_5.TextSize = 23
+t4.value1.TextButton13_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton13_5.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton13_5.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton13_5.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton13_5.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton13_5.Text = "Starman"
+t4.value1.TextButton13_5.Name = "TextButton13"
+t4.value1.TextButton13_5.Position = UDim2.new(0, 6, 0, 154)
+t4.value1.LocalScript_6 = Instance.new("LocalScript", t4.value1.TextButton13_5)
+t4.value1.TextButton7_7 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton7_7.TextSize = 24
+t4.value1.TextButton7_7.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton7_7.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton7_7.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton7_7.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton7_7.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton7_7.Text = "666"
+t4.value1.TextButton7_7.Name = "TextButton7"
+t4.value1.TextButton7_7.Position = UDim2.new(0, 220, 0, 82)
+t4.value1.LocalScript_8 = Instance.new("LocalScript", t4.value1.TextButton7_7)
+t4.value1.TextButton2_9 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton2_9.TextSize = 24
+t4.value1.TextButton2_9.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton2_9.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton2_9.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton2_9.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton2_9.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton2_9.Text = "Skybox 2"
+t4.value1.TextButton2_9.Name = "TextButton2"
+t4.value1.TextButton2_9.Position = UDim2.new(0, 112, 0, 46)
+t4.value1.LocalScript_a = Instance.new("LocalScript", t4.value1.TextButton2_9)
+t4.value1.TextButton8_b = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton8_b.TextSize = 24
+t4.value1.TextButton8_b.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton8_b.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton8_b.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton8_b.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton8_b.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton8_b.Text = "Speed 50"
+t4.value1.TextButton8_b.Name = "TextButton8"
+t4.value1.TextButton8_b.Position = UDim2.new(0, 328, 0, 82)
+t4.value1.LocalScript_c = Instance.new("LocalScript", t4.value1.TextButton8_b)
+t4.value1.TextButton6_d = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton6_d.TextSize = 24
+t4.value1.TextButton6_d.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton6_d.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton6_d.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton6_d.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton6_d.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton6_d.Text = "Hint"
+t4.value1.TextButton6_d.Name = "TextButton6"
+t4.value1.TextButton6_d.Position = UDim2.new(0, 112, 0, 82)
+t4.value1.LocalScript_e = Instance.new("LocalScript", t4.value1.TextButton6_d)
+t4.value1.TextButton5_f = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton5_f.TextSize = 24
+t4.value1.TextButton5_f.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton5_f.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton5_f.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton5_f.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton5_f.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton5_f.Text = "Message"
+t4.value1.TextButton5_f.Name = "TextButton5"
+t4.value1.TextButton5_f.Position = UDim2.new(0, 6, 0, 82)
+t4.value1.LocalScript_10 = Instance.new("LocalScript", t4.value1.TextButton5_f)
+t4.value1.TextButton25_11 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton25_11.TextSize = 24
+t4.value1.TextButton25_11.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton25_11.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton25_11.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton25_11.Size = UDim2.new(0, 50, 0, 28)
+t4.value1.TextButton25_11.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton25_11.Text = "R6"
+t4.value1.TextButton25_11.Name = "TextButton25"
+t4.value1.TextButton25_11.Position = UDim2.new(0, 378, 0, 6)
+t4.value1.LocalScript_12 = Instance.new("LocalScript", t4.value1.TextButton25_11)
+t4.value1.TextLabel_13 = Instance.new("TextLabel", t4.value1.Frame_2)
+t4.value1.TextLabel_13.BorderSizePixel = 0
+t4.value1.TextLabel_13.TextSize = 24
+t4.value1.TextLabel_13.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextLabel_13.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextLabel_13.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextLabel_13.BackgroundTransparency = 1
+t4.value1.TextLabel_13.Size = UDim2.new(0, 214, 0, 32)
+t4.value1.TextLabel_13.Text = "Java1x3x5x6\'s Gui"
+t4.value1.TextLabel_13.Position = UDim2.new(0, 118, 0, 6)
+t4.value1.UIDragDetector_14 = Instance.new("UIDragDetector", t4.value1.Frame_2)
+t4.value1.TextButton22_15 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton22_15.TextSize = 20
+t4.value1.TextButton22_15.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton22_15.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton22_15.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton22_15.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton22_15.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton22_15.Text = "Lightsaber"
+t4.value1.TextButton22_15.Name = "TextButton22"
+t4.value1.TextButton22_15.Position = UDim2.new(0, 112, 0, 260)
+t4.value1.LocalScript_16 = Instance.new("LocalScript", t4.value1.TextButton22_15)
+t4.value1.TextButton9_17 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton9_17.TextSize = 24
+t4.value1.TextButton9_17.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton9_17.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton9_17.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton9_17.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton9_17.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton9_17.Text = "particles"
+t4.value1.TextButton9_17.Name = "TextButton9"
+t4.value1.TextButton9_17.Position = UDim2.new(0, 6, 0, 118)
+t4.value1.LocalScript_18 = Instance.new("LocalScript", t4.value1.TextButton9_17)
+t4.value1.TextButton17_19 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton17_19.TextSize = 20
+t4.value1.TextButton17_19.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton17_19.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton17_19.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton17_19.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton17_19.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton17_19.Text = "Mlg particles"
+t4.value1.TextButton17_19.Name = "TextButton17"
+t4.value1.TextButton17_19.Position = UDim2.new(0, 6, 0, 226)
+t4.value1.LocalScript_1a = Instance.new("LocalScript", t4.value1.TextButton17_19)
+t4.value1.TextButton26_1b = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton26_1b.TextSize = 18
+t4.value1.TextButton26_1b.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton26_1b.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton26_1b.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton26_1b.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton26_1b.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton26_1b.Text = "Boobs & Ass"
+t4.value1.TextButton26_1b.Name = "TextButton26"
+t4.value1.TextButton26_1b.Position = UDim2.new(0, 6, 0, 296)
+t4.value1.LocalScript_1c = Instance.new("LocalScript", t4.value1.TextButton26_1b)
+t4.value1.TextButton28_1d = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton28_1d.TextSize = 18
+t4.value1.TextButton28_1d.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton28_1d.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton28_1d.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton28_1d.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton28_1d.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton28_1d.Text = "Shedletsky Rage"
+t4.value1.TextButton28_1d.Name = "TextButton28"
+t4.value1.TextButton28_1d.Position = UDim2.new(0, 220, 0, 296)
+t4.value1.LocalScript_1e = Instance.new("LocalScript", t4.value1.TextButton28_1d)
+t4.value1.TextButton3_1f = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton3_1f.TextSize = 20
+t4.value1.TextButton3_1f.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton3_1f.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton3_1f.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton3_1f.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton3_1f.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton3_1f.Text = "Decal Spam 1"
+t4.value1.TextButton3_1f.Name = "TextButton3"
+t4.value1.TextButton3_1f.Position = UDim2.new(0, 220, 0, 46)
+t4.value1.LocalScript_20 = Instance.new("LocalScript", t4.value1.TextButton3_1f)
+t4.value1.TextButton12_21 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton12_21.TextSize = 17
+t4.value1.TextButton12_21.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton12_21.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton12_21.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton12_21.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton12_21.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton12_21.Text = "gravity hammer"
+t4.value1.TextButton12_21.Name = "TextButton12"
+t4.value1.TextButton12_21.Position = UDim2.new(0, 328, 0, 118)
+t4.value1.LocalScript_22 = Instance.new("LocalScript", t4.value1.TextButton12_21)
+t4.value1.TextButton29_23 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton29_23.TextSize = 20
+t4.value1.TextButton29_23.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton29_23.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton29_23.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton29_23.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton29_23.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton29_23.Text = "Cop"
+t4.value1.TextButton29_23.Name = "TextButton29"
+t4.value1.TextButton29_23.Position = UDim2.new(0, 328, 0, 296)
+t4.value1.LocalScript_24 = Instance.new("LocalScript", t4.value1.TextButton29_23)
+t4.value1.TextButton18_25 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton18_25.TextSize = 20
+t4.value1.TextButton18_25.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton18_25.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton18_25.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton18_25.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton18_25.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton18_25.Text = "Trollface"
+t4.value1.TextButton18_25.Name = "TextButton18"
+t4.value1.TextButton18_25.Position = UDim2.new(0, 112, 0, 226)
+t4.value1.LocalScript_26 = Instance.new("LocalScript", t4.value1.TextButton18_25)
+t4.value1.TextButton23_27 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton23_27.TextSize = 20
+t4.value1.TextButton23_27.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton23_27.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton23_27.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton23_27.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton23_27.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton23_27.Text = "Head shake"
+t4.value1.TextButton23_27.Name = "TextButton23"
+t4.value1.TextButton23_27.Position = UDim2.new(0, 220, 0, 260)
+t4.value1.LocalScript_28 = Instance.new("LocalScript", t4.value1.TextButton23_27)
+t4.value1.TextButton20_29 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton20_29.TextSize = 20
+t4.value1.TextButton20_29.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton20_29.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton20_29.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton20_29.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton20_29.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton20_29.Text = "Give Ak 47"
+t4.value1.TextButton20_29.Name = "TextButton20"
+t4.value1.TextButton20_29.Position = UDim2.new(0, 328, 0, 226)
+t4.value1.LocalScript_2a = Instance.new("LocalScript", t4.value1.TextButton20_29)
+t4.value1.TextButton11_2b = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton11_2b.TextSize = 20
+t4.value1.TextButton11_2b.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton11_2b.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton11_2b.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton11_2b.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton11_2b.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton11_2b.Text = "Grab knife v3"
+t4.value1.TextButton11_2b.Name = "TextButton11"
+t4.value1.TextButton11_2b.Position = UDim2.new(0, 220, 0, 118)
+t4.value1.LocalScript_2c = Instance.new("LocalScript", t4.value1.TextButton11_2b)
+t4.value1.TextLabel2_2d = Instance.new("TextLabel", t4.value1.Frame_2)
+t4.value1.TextLabel2_2d.BorderSizePixel = 0
+t4.value1.TextLabel2_2d.TextSize = 18
+t4.value1.TextLabel2_2d.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextLabel2_2d.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextLabel2_2d.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextLabel2_2d.BackgroundTransparency = 1
+t4.value1.TextLabel2_2d.Size = UDim2.new(0, 294, 0, 32)
+t4.value1.TextLabel2_2d.Text = "Made By Fancykid"
+t4.value1.TextLabel2_2d.Name = "TextLabel2"
+t4.value1.TextLabel2_2d.Position = UDim2.new(0, -84, 0, 6)
+t4.value1.TextButton10_2e = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton10_2e.TextSize = 24
+t4.value1.TextButton10_2e.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton10_2e.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton10_2e.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton10_2e.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton10_2e.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton10_2e.Text = "Disco Fog"
+t4.value1.TextButton10_2e.Name = "TextButton10"
+t4.value1.TextButton10_2e.Position = UDim2.new(0, 112, 0, 118)
+t4.value1.LocalScript_2f = Instance.new("LocalScript", t4.value1.TextButton10_2e)
+t4.value1.TextButton14_30 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton14_30.TextSize = 23
+t4.value1.TextButton14_30.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton14_30.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton14_30.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton14_30.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton14_30.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton14_30.Text = "RC7 Cloud"
+t4.value1.TextButton14_30.Name = "TextButton14"
+t4.value1.TextButton14_30.Position = UDim2.new(0, 112, 0, 154)
+t4.value1.LocalScript_31 = Instance.new("LocalScript", t4.value1.TextButton14_30)
+t4.value1.TextButton21_32 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton21_32.TextSize = 20
+t4.value1.TextButton21_32.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton21_32.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton21_32.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton21_32.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton21_32.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton21_32.Text = "C00lgui"
+t4.value1.TextButton21_32.Name = "TextButton21"
+t4.value1.TextButton21_32.Position = UDim2.new(0, 6, 0, 260)
+t4.value1.LocalScript_33 = Instance.new("LocalScript", t4.value1.TextButton21_32)
+t4.value1.TextButton4_34 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton4_34.TextSize = 20
+t4.value1.TextButton4_34.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton4_34.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton4_34.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton4_34.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton4_34.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton4_34.Text = "Decal Spam 2"
+t4.value1.TextButton4_34.Name = "TextButton4"
+t4.value1.TextButton4_34.Position = UDim2.new(0, 328, 0, 46)
+t4.value1.LocalScript_35 = Instance.new("LocalScript", t4.value1.TextButton4_34)
+t4.value1.TextButton19_36 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton19_36.TextSize = 20
+t4.value1.TextButton19_36.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton19_36.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton19_36.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton19_36.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton19_36.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton19_36.Text = "Worship (R6)"
+t4.value1.TextButton19_36.Name = "TextButton19"
+t4.value1.TextButton19_36.Position = UDim2.new(0, 220, 0, 226)
+t4.value1.LocalScript_37 = Instance.new("LocalScript", t4.value1.TextButton19_36)
+t4.value1.TextButton27_38 = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton27_38.TextSize = 20
+t4.value1.TextButton27_38.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton27_38.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton27_38.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton27_38.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton27_38.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton27_38.Text = "Dick All"
+t4.value1.TextButton27_38.Name = "TextButton27"
+t4.value1.TextButton27_38.Position = UDim2.new(0, 112, 0, 296)
+t4.value1.LocalScript_39 = Instance.new("LocalScript", t4.value1.TextButton27_38)
+t4.value1.TextButton24_3a = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton24_3a.TextSize = 20
+t4.value1.TextButton24_3a.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton24_3a.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton24_3a.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton24_3a.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton24_3a.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton24_3a.Text = "Chicken Arm"
+t4.value1.TextButton24_3a.Name = "TextButton24"
+t4.value1.TextButton24_3a.Position = UDim2.new(0, 328, 0, 260)
+t4.value1.LocalScript_3b = Instance.new("LocalScript", t4.value1.TextButton24_3a)
+t4.value1.TextButton_3c = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton_3c.TextSize = 24
+t4.value1.TextButton_3c.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton_3c.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton_3c.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton_3c.Size = UDim2.new(0, 100, 0, 28)
+t4.value1.TextButton_3c.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton_3c.Text = "Skybox 1"
+t4.value1.TextButton_3c.Position = UDim2.new(0, 6, 0, 46)
+t4.value1.LocalScript_3d = Instance.new("LocalScript", t4.value1.TextButton_3c)
+t4.value1.TextButton16_3e = Instance.new("TextButton", t4.value1.Frame_2)
+t4.value1.TextButton16_3e.TextSize = 23
+t4.value1.TextButton16_3e.TextColor3 = Color3.fromRGB(255, 255, 255)
+t4.value1.TextButton16_3e.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+t4.value1.TextButton16_3e.FontFace = Font.new("rbxasset://fonts/families/Creepster.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+t4.value1.TextButton16_3e.Size = UDim2.new(0, 426, 0, 28)
+t4.value1.TextButton16_3e.BorderColor3 = Color3.fromRGB(255, 0, 0)
+t4.value1.TextButton16_3e.Text = "Fencing Restore"
+t4.value1.TextButton16_3e.Name = "TextButton16"
+t4.value1.TextButton16_3e.Position = UDim2.new(0, 6, 0, 190)
+t4.value1.LocalScript_3f = Instance.new("LocalScript", t4.value1.TextButton16_3e)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_4.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		Spooky = Instance.new("Sound", game.Workspace)
+		Spooky.Name = "Spooky"
+		Spooky.SoundId = "rbxassetid://1846368080"
+		Spooky.Volume = 5
+		Spooky.Looped = true
+		Spooky.Pitch = 1
+		Spooky:Play()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_6.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/mizu-dump/Lua2Loadstring/main/Main/starman.lua"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_8.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-666-script-56980"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_a.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		local Lighting = game:GetService("Lighting")
+
+		Lighting:ClearAllChildren()
+
+		local Sky = Instance.new("Sky", Lighting)
+
+		Sky.SkyboxBk = "rbxassetid://3342499434"
+		Sky.SkyboxFt = "rbxassetid://3342499434"
+		Sky.SkyboxLf = "rbxassetid://3342499434"
+		Sky.SkyboxRt = "rbxassetid://3342499434"
+		Sky.SkyboxUp = "rbxassetid://3342499434"
+		Sky.SkyboxDn = "rbxassetid://3342499434"
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_c.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		local LocalPlayer = game.Players.LocalPlayer
+
+		LocalPlayer.CharacterAdded:Connect(function(character)
+			character:WaitForChild("Humanoid").WalkSpeed = 50
+		end)
+
+		if not LocalPlayer.Character then
+			return
+		end
+
+		LocalPlayer.Character:WaitForChild("Humanoid").WalkSpeed = 50
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_e.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		local Hint = Instance.new("Hint")
+
+		Hint.Parent = Workspace
+		Hint.Text = "TEAM JAVA1X3X5X6 WAS HERE"
+		wait(9999999999999)
+		Hint:Remove()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_10.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		local Message = Instance.new("Message", workspace)
+
+		Message.Text = "TEAM JAVA1X3X5X6 JOIN TODAY!"
+		wait(5.8)
+		Message:Destroy()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_12.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://pastefy.app/lOmEr4IP/raw"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_16.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Lightsaber-9374"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_18.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		t1 = "http://www.roblox.com/asset/?id=3342499434"
+		t2 = "http://www.roblox.com/asset/?id=891289659"
+		t3 = "http://www.roblox.com/asset/?id=3342499434"
+
+		local children = game.Players:GetChildren()
+		local children2 = game.Workspace:GetChildren()
+
+		for _, child in pairs(children) do
+			pe = Instance.new("ParticleEmitter", child.Character.Torso)
+			pe.Texture = t3
+			pe.VelocitySpread = 100
+		end
+
+		for i = 1, #children2 do
+			if children2[i]:isA("BasePart") then
+				pe = Instance.new("ParticleEmitter", children2[i])
+				pe.Texture = t3
+				pe.VelocitySpread = 5
+			end
+		end
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_1a.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-MLG-Particles-No-Fe-27588"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_1c.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		local Character = game:GetService("Players").LocalPlayer.Character
+		local Part = Instance.new("Part", Character)
+
+		Part.Size = Vector3.new(1.3, 1.3, 1.3)
+		Part.Shape = "Ball"
+		Part.BrickColor = BrickColor.new("Pastel brown")
+		Part.TopSurface = "Smooth"
+		Part.BottomSurface = "Smooth"
+		Part.FormFactor = "Custom"
+
+		local Weld = Instance.new("Weld", Character.Torso)
+
+		Weld.Part0 = Character.Torso
+		Weld.Part1 = Part
+		Weld.C1 = CFrame.new(0.5, -0.3, 0.4)
+
+		local Part2 = Instance.new("Part", Character)
+
+		Part2.Size = Vector3.new(1.3, 1.3, 1.3)
+		Part2.Shape = "Ball"
+		Part2.BrickColor = BrickColor.new("Pastel brown")
+		Part2.TopSurface = "Smooth"
+		Part2.BottomSurface = "Smooth"
+		Part2.FormFactor = "Custom"
+
+		local Weld2 = Instance.new("Weld", Character.Torso)
+
+		Weld2.Part0 = Character.Torso
+		Weld2.Part1 = Part2
+		Weld2.C1 = CFrame.new(-0.5, -0.3, 0.4)
+
+		local Part3 = Instance.new("Part", Character)
+
+		Part3.Size = Vector3.new(0.4, 0.4, 0.4)
+		Part3.Shape = "Ball"
+		Part3.BrickColor = BrickColor.new("Brown")
+		Part3.TopSurface = "Smooth"
+		Part3.BottomSurface = "Smooth"
+		Part3.FormFactor = "Custom"
+
+		local Weld3 = Instance.new("Weld", Character.Torso)
+
+		Weld3.Part0 = Character.Torso
+		Weld3.Part1 = Part3
+		Weld3.C1 = CFrame.new(-0.5, -0.3, 0.9)
+
+		local Part4 = Instance.new("Part", Character)
+
+		Part4.Size = Vector3.new(0.4, 0.4, 0.4)
+		Part4.Shape = "Ball"
+		Part4.BrickColor = BrickColor.new("Brown")
+		Part4.TopSurface = "Smooth"
+		Part4.BottomSurface = "Smooth"
+		Part4.FormFactor = "Custom"
+
+		local Weld4 = Instance.new("Weld", Character.Torso)
+
+		Weld4.Part0 = Character.Torso
+		Weld4.Part1 = Part4
+		Weld4.C1 = CFrame.new(0.5, -0.3, 0.9)
+
+		local Part5 = Instance.new("Part", Character)
+
+		Part5.Size = Vector3.new(1.2, 1.2, 1.2)
+		Part5.Shape = "Ball"
+		Part5.BrickColor = BrickColor.new("Pastel brown")
+		Part5.TopSurface = "Smooth"
+		Part5.BottomSurface = "Smooth"
+		Part5.FormFactor = "Custom"
+
+		local Weld5 = Instance.new("Weld", Character.Torso)
+
+		Weld5.Part0 = Character.Torso
+		Weld5.Part1 = Part5
+		Weld5.C1 = CFrame.new(-0.5, 0.9, -0.4)
+
+		local Part6 = Instance.new("Part", Character)
+
+		Part6.Size = Vector3.new(1.2, 1.2, 1.2)
+		Part6.Shape = "Ball"
+		Part6.BrickColor = BrickColor.new("Pastel brown")
+		Part6.TopSurface = "Smooth"
+		Part6.BottomSurface = "Smooth"
+		Part6.FormFactor = "Custom"
+
+		local Weld6 = Instance.new("Weld", Character.Torso)
+
+		Weld6.Part0 = Character.Torso
+		Weld6.Part1 = Part6
+		Weld6.C1 = CFrame.new(0.5, 0.9, -0.4)
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_1e.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/ian49972/SCRIPTS/refs/heads/main/Shedletsky%20Rage"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_20.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		function exPro(p1)
+			for _, child in pairs(p1:GetChildren()) do
+				local isDecal = child:IsA("Decal")
+
+				if isDecal then
+					isDecal = child.Texture ~= "http://www.roblox.com/asset/?id=891289659"
+				end
+
+				if isDecal then
+					child.Parent = nil
+				elseif child:IsA("BasePart") then
+					child.Material = "Plastic"
+					child.Transparency = 0
+
+					local Decal = Instance.new("Decal", child)
+					local Decal2 = Instance.new("Decal", child)
+					local Decal3 = Instance.new("Decal", child)
+					local Decal4 = Instance.new("Decal", child)
+					local Decal5 = Instance.new("Decal", child)
+					local Decal6 = Instance.new("Decal", child)
+
+					Decal.Texture = "http://www.roblox.com/asset/?id=891289659"
+					Decal2.Texture = "http://www.roblox.com/asset/?id=891289659"
+					Decal3.Texture = "http://www.roblox.com/asset/?id=891289659"
+					Decal4.Texture = "http://www.roblox.com/asset/?id=891289659"
+					Decal5.Texture = "http://www.roblox.com/asset/?id=891289659"
+					Decal6.Texture = "http://www.roblox.com/asset/?id=891289659"
+					Decal.Face = "Front"
+					Decal2.Face = "Back"
+					Decal3.Face = "Right"
+					Decal4.Face = "Left"
+					Decal5.Face = "Top"
+					Decal6.Face = "Bottom"
+				end
+
+				exPro(child)
+			end
+		end
+		function asdf(p2)
+			for _, child in pairs(p2:GetChildren()) do
+				asdf(child)
+			end
+		end
+
+		exPro(game.Workspace)
+		asdf(game.Workspace)
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_22.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/mizu-dump/Lua2Loadstring/main/Main/Aaa.lua"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_24.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/nicolasbarbosa323/good-cop-bad-coop/refs/heads/main/KwuminKa.txt"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_26.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		local pairs_ = pairs
+		local Players = game.Players
+
+		for _, child in pairs_(Players.GetChildren(Players)) do
+			if child.Character:FindFirstChild("Head") then
+				gui1 = Instance.new("BillboardGui")
+				gui1.Parent = child.Character.Head
+				gui1.Adornee = child.Character.Head
+				gui1.Size = UDim2.new(2.5, 0, 2.5, 0)
+				gui1.StudsOffset = Vector3.new(0, 0.2, 0)
+				gui1.AlwaysOnTop = true
+				text1 = Instance.new("ImageLabel")
+				text1.Image = "http://www.roblox.com/asset/?id=6862780932"
+				text1.Size = UDim2.new(1, 0, 1, 0)
+				text1.Position = UDim2.new(0, 0, 0, 0)
+				text1.BackgroundTransparency = 1
+				text1.Parent = gui1
+				child.Character.Head.Transparency = 1
+			end
+		end
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_28.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		local LocalPlayer = game.Players.LocalPlayer
+		local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+
+		Character:WaitForChild("HumanoidRootPart")
+
+		local Neck = Character:FindFirstChild("Neck", true)
+		local Humanoid = Character:WaitForChild("Humanoid")
+		local Y = Neck.C0.Y
+		local X_ = Neck.C0.X
+		local Z = Neck.C0.Z
+		local cFrameNew = CFrame.new
+		local sin = math.sin
+		local clock = os.clock
+
+		game:GetService("RunService").RenderStepped:Connect(function()
+			if not Neck then
+				return
+			end
+
+			local v86 = sin(clock() * 6) * 0.8
+
+			if Humanoid.RigType == Enum.HumanoidRigType.R15 then
+				Neck.C0 = cFrameNew(X_ + v86, Y, Z)
+
+				return
+			end
+
+			if Humanoid.RigType ~= Enum.HumanoidRigType.R6 then
+				return
+			end
+
+			Neck.C0 = cFrameNew(X_ + v86, Y, Z) * CFrame.Angles(4.71238898038469, 0, 3.141592653589793)
+		end)
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_2a.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Visual-AK-47-gun-29467"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_2c.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Prison-Life-Grab-V3-18932"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_2f.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-c00lkidd-disco-fog-67-percent-accurate-52489"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_31.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Rc7-Cloud-29172"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_33.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-c00lgui-mobile-edition-from-GitHub-not-mine-80639"))()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_35.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		function exPro(p3)
+			for _, child in pairs(p3:GetChildren()) do
+				local isDecal = child:IsA("Decal")
+
+				if isDecal then
+					isDecal = child.Texture ~= "http://www.roblox.com/asset/?id=3342499434"
+				end
+
+				if isDecal then
+					child.Parent = nil
+				elseif child:IsA("BasePart") then
+					child.Material = "Plastic"
+					child.Transparency = 0
+
+					local Decal = Instance.new("Decal", child)
+					local Decal2 = Instance.new("Decal", child)
+					local Decal3 = Instance.new("Decal", child)
+					local Decal4 = Instance.new("Decal", child)
+					local Decal5 = Instance.new("Decal", child)
+					local Decal6 = Instance.new("Decal", child)
+
+					Decal.Texture = "http://www.roblox.com/asset/?id=3342499434"
+					Decal2.Texture = "http://www.roblox.com/asset/?id=3342499434"
+					Decal3.Texture = "http://www.roblox.com/asset/?id=3342499434"
+					Decal4.Texture = "http://www.roblox.com/asset/?id=3342499434"
+					Decal5.Texture = "http://www.roblox.com/asset/?id=3342499434"
+					Decal6.Texture = "http://www.roblox.com/asset/?id=3342499434"
+					Decal.Face = "Front"
+					Decal2.Face = "Back"
+					Decal3.Face = "Right"
+					Decal4.Face = "Left"
+					Decal5.Face = "Top"
+					Decal6.Face = "Bottom"
+				end
+
+				exPro(child)
+			end
+		end
+		function asdf(p4)
+			for _, child in pairs(p4:GetChildren()) do
+				asdf(child)
+			end
+		end
+
+		exPro(game.Workspace)
+		asdf(game.Workspace)
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_37.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		loadstring("loadstring(game:HttpGet(\"https://pastefy.app/bLQFgx1B/raw\"))()")()
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_39.Parent
+	local _ = game.Players.LocalPlayer
+	local MouseButton1Click = Parent.MouseButton1Click
+
+	MouseButton1Click.Connect(MouseButton1Click, function()
+		function armor(p5)
+			me = p5.Character
+			me2 = p5
+			pcall(function()
+				me.King_N3xul:remove()
+			end)
+			mod = Instance.new("Model")
+			mod.Name = "peepee"
+			mod.Parent = me
+			part = Instance.new("Part")
+			part.Parent = mod
+			part.Size = Vector3.new(1, 1, 1)
+			part.Position = Vector3.new(1, 1, 1)
+			part.BrickColor = BrickColor.new("Light orange")
+			part:BreakJoints()
+			mesh = Instance.new("SpecialMesh")
+			mesh.Parent = part
+			mesh.MeshType = "Sphere"
+			mesh.Scale = Vector3.new(0.5, 0.5, 0.5)
+			we = Instance.new("Weld")
+			we.Parent = mod
+			we.Part0 = part
+			we.Part1 = me.Torso
+			we.C0 = CFrame.fromEulerAnglesXYZ(0.15, 0, 0) + Vector3.new(0.15, 1.25, 0.75)
+			we.C1 = CFrame.new()
+			part = Instance.new("Part")
+			part.Parent = mod
+			part.Size = Vector3.new(1, 1, 1)
+			part.Position = Vector3.new(1, 1, 1)
+			part.BrickColor = BrickColor.new("Light orange")
+			part:BreakJoints()
+			mesh = Instance.new("SpecialMesh")
+			mesh.Parent = part
+			mesh.MeshType = "Sphere"
+			mesh.Scale = Vector3.new(0.5, 0.5, 0.5)
+			we = Instance.new("Weld")
+			we.Parent = mod
+			we.Part0 = part
+			we.Part1 = me.Torso
+			we.C0 = CFrame.fromEulerAnglesXYZ(0.15, 0, 0) + Vector3.new(-0.15, 1.25, 0.75)
+			we.C1 = CFrame.new()
+			part = Instance.new("Part")
+			part.Parent = mod
+			part.Size = Vector3.new(1, 3, 1)
+			part.Position = Vector3.new(1, 1, 1)
+			part.BrickColor = BrickColor.new("Light orange")
+			part:BreakJoints()
+			mesh3 = Instance.new("SpecialMesh")
+			mesh3.Parent = part
+			mesh3.MeshType = "Head"
+			mesh3.Scale = Vector3.new(0.5, 1, 0.5)
+			we3 = Instance.new("Weld")
+			we3.Parent = mod
+			we3.Part0 = part
+			we3.Part1 = me.Torso
+			we3.C0 = CFrame.fromEulerAnglesXYZ(1, 0, 0) + Vector3.new(0, -0.8, 1.25)
+			we3.C1 = CFrame.new()
+
+			function cmds(p6)
+				if p6 == "grow" then
+					for i = 0, 1, 0.1 do
+						mesh3.Scale = mesh3.Scale + Vector3.new(0, i, 0)
+						we3.C0 = we3.C0 - Vector3.new(0, i, 0)
+						wait()
+					end
+				end
+
+				if p6 ~= "shrink" then
+					return
+				end
+
+				for i = 0, 1, 0.1 do
+					mesh3.Scale = mesh3.Scale - Vector3.new(0, i, 0)
+					we3.C0 = we3.C0 + Vector3.new(0, i + 0.1, 0)
+					wait()
+				end
+			end
+
+			me2.Chatted:connect(cmds)
+		end
+
+		local pairs_ = pairs
+		local Players = Game.Players
+
+		for _, child in pairs_(Players.GetChildren(Players)) do
+			armor(child)
+		end
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_3b.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		local LocalPlayer = game.Players.LocalPlayer
+		local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+
+		if Character:WaitForChild("Humanoid").RigType == Enum.HumanoidRigType.R6 then
+			local Torso = Character:WaitForChild("Torso")
+			local RightShoulder = Torso:WaitForChild("Right Shoulder")
+			local LeftShoulder = Torso:WaitForChild("Left Shoulder")
+			local cFrameNew = CFrame.new
+			local cFrame = CFrame.Angles
+
+			RightShoulder.C0 = cFrameNew(1.4, 0.5, -0.5) * cFrame(0, 0, 1.5707963267948966)
+			LeftShoulder.C0 = cFrameNew(-1.4, 0.5, -0.5) * cFrame(0, 0, -1.5707963267948966)
+		end
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_3d.Parent
+	local _ = game.Players.LocalPlayer
+
+	Parent.MouseButton1Click:Connect(function()
+		local Lighting = game:GetService("Lighting")
+
+		Lighting:ClearAllChildren()
+
+		local Sky = Instance.new("Sky", Lighting)
+
+		Sky.SkyboxBk = "rbxassetid://891289659"
+		Sky.SkyboxFt = "rbxassetid://891289659"
+		Sky.SkyboxLf = "rbxassetid://891289659"
+		Sky.SkyboxRt = "rbxassetid://891289659"
+		Sky.SkyboxUp = "rbxassetid://891289659"
+		Sky.SkyboxDn = "rbxassetid://891289659"
+	end)
+end)
+task.spawn(function()
+	local Parent = t4.value1.LocalScript_3f.Parent
+	local _ = game.Players.LocalPlayer
+	local MouseButton1Click = Parent.MouseButton1Click
+
+	MouseButton1Click.Connect(MouseButton1Click, function()
+		function X(p7)
+			for _, child in pairs(p7:GetChildren()) do
+				child.Archivable = true
+
+				local v139 = child.Name ~= "UClear"
+
+				if v139 then
+					v139 = child.Name ~= "Terrain"
+
+					if v139 then
+						v139 = game.Players:GetPlayerFromCharacter(child) == nil
+
+						if v139 then
+							v139 = child ~= game.Workspace.CurrentCamera
+						end
+					end
+				end
+
+				if v139 then
+					if child:IsA("Script") or child:IsA("LocalScript") then
+						child.Disabled = true
+						child:remove()
+					else
+						child:remove()
+					end
+				end
+
+				if game.Workspace:findFirstChild("Base") == nil then
+					local Part = Instance.new("Part", game.Workspace)
+
+					Part.Name = "Base"
+					Part.Size = Vector3.new(1000, 1, 1000)
+					Part.BrickColor = BrickColor.new("Earth green")
+					Part.Anchored = true
+					Part.Locked = true
+					Part.TopSurface = "Universal"
+					Part.CFrame = CFrame.new(Vector3.new(0, 0, 0))
+
+					local SpawnLocation = Instance.new("SpawnLocation", game.Workspace)
+
+					SpawnLocation.Name = "lol"
+					SpawnLocation.Size = Vector3.new(6, 1, 6)
+					SpawnLocation.Transparency = 1
+					SpawnLocation.CanCollide = false
+					SpawnLocation.Anchored = true
+					SpawnLocation.Locked = true
+					SpawnLocation.CFrame = CFrame.new(Vector3.new(0, 1, 0))
+				end
+			end
+		end
+
+		X(game.Workspace)
+		X(game.Teams)
+		X(game.StarterGui)
+		wait()
+		game.Workspace:InsertContent("rbxassetid://118791953")
+		wait()
+		game.workspace.Base:Destroy()
+		wait()
+		game.workspace.lol:Destroy()
+		wait()
+		game.Lighting.Ambient = Color3.new(255, 255, 255)
+		game.Lighting.TimeOfDay = 12
+		game.Lighting.Brightness = 0.5
+		game.Lighting.FogEnd = 100000
+		game.Lighting.GlobalShadows = false
+		game.Lighting.Sky:Destroy()
+		game.Lighting.FogEnd = 100000
+		game.Lighting.Brightness = 1
+		game.Workspace.Terrain:clear()
+	end)
+end)
+
+return t4.value1.ScreenGui_1, require
